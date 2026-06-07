@@ -17,6 +17,7 @@ REPOS = {
     "shroud": os.path.join(TOOLS_DIR, "..", "Shroud"),
     "spectrec2": os.path.join(TOOLS_DIR, "..", "SpectreC2"),
     "pentest-toolkit": os.path.join(TOOLS_DIR, "..", "pentest-toolkit"),
+    "discord": os.path.join(TOOLS_DIR, "..", "Discord"),
 }
 
 
@@ -75,6 +76,11 @@ def cmd_crypto(args):
     subprocess.run([sys.executable, script] + args)
 
 
+def cmd_discord(args):
+    script = os.path.join(REPOS["discord"], "discord.py")
+    subprocess.run([sys.executable, script] + args)
+
+
 COMMANDS = {
     "stay": cmd_stay,
     "token": cmd_token,
@@ -87,6 +93,7 @@ COMMANDS = {
     "shellcode": cmd_shellcode,
     "exploit": cmd_exploit,
     "crypto": cmd_crypto,
+    "discord": cmd_discord,
 }
 
 HELP_TEXT = """Kit — unified tool launcher
@@ -105,6 +112,7 @@ Commands:
   shellcode         Shellcode runner
   exploit           Exploit development utilities
   crypto            Crypto analysis toolkit
+  discord           Full Discord terminal client (needs: pip install websockets)
 """
 
 
